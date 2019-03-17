@@ -5,6 +5,10 @@ services:
     build:
       context: .
       dockerfile: ./docker/node/Dockerfile
+    container_name:
+      container_node
+    image:
+      smilebhai/node
     volumes:
     # https://stackoverflow.com/a/32785014/232619
       - .:/app
@@ -17,7 +21,13 @@ services:
     depends_on:
       - mongo
   mongo:
-    image: mongo
+    build:
+      context: .
+      dockerfile: ./docker/mongo/Dockerfile
+    container_name:
+      container_mongo    
+    image:
+      smilebhai/mongo
     restart: always
     ports:
       - 27017:27017

@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  GITHUB_CLIENTID: <ID>
+  GITHUB_SECRET: <SECRET>
+  GOOGLE_CLIENTID: <ID>
+  GOOGLE_SECRET: <SECRET>
+  IMAGER_S3_BUCKET: AWS_S3_BUCKET
+  IMAGER_S3_KEY: AWS_S3_KEY
+  IMAGER_S3_SECRET: AWS_S3_SECRET
+  LINKEDIN_CLIENTID: <ID>
+  LINKEDIN_SECRET: <SECRET>
+  MONGODB_URL: mongodb://mongo:27017/noobjs_dev
+  TWITTER_CLIENTID: <ID>
+  TWITTER_SECRET: <SECRET>
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: node-env
+  name: node-env

@@ -1,0 +1,107 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../docker-compose.yml
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: node
+  name: node
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: node
+    spec:
+      containers:
+      - args:
+        - /usr/local/wait-for-it.sh
+        - mongo:27017
+        - --
+        - npm
+        - start
+        env:
+        - name: GITHUB_CLIENTID
+          valueFrom:
+            configMapKeyRef:
+              key: GITHUB_CLIENTID
+              name: node-env
+        - name: GITHUB_SECRET
+          valueFrom:
+            configMapKeyRef:
+              key: GITHUB_SECRET
+              name: node-env
+        - name: GOOGLE_CLIENTID
+          valueFrom:
+            configMapKeyRef:
+              key: GOOGLE_CLIENTID
+              name: node-env
+        - name: GOOGLE_SECRET
+          valueFrom:
+            configMapKeyRef:
+              key: GOOGLE_SECRET
+              name: node-env
+        - name: IMAGER_S3_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              key: IMAGER_S3_BUCKET
+              name: node-env
+        - name: IMAGER_S3_KEY
+          valueFrom:
+            configMapKeyRef:
+              key: IMAGER_S3_KEY
+              name: node-env
+        - name: IMAGER_S3_SECRET
+          valueFrom:
+            configMapKeyRef:
+              key: IMAGER_S3_SECRET
+              name: node-env
+        - name: LINKEDIN_CLIENTID
+          valueFrom:
+            configMapKeyRef:
+              key: LINKEDIN_CLIENTID
+              name: node-env
+        - name: LINKEDIN_SECRET
+          valueFrom:
+            configMapKeyRef:
+              key: LINKEDIN_SECRET
+              name: node-env
+        - name: MONGODB_URL
+          valueFrom:
+            configMapKeyRef:
+              key: MONGODB_URL
+              name: node-env
+        - name: TWITTER_CLIENTID
+          valueFrom:
+            configMapKeyRef:
+              key: TWITTER_CLIENTID
+              name: node-env
+        - name: TWITTER_SECRET
+          valueFrom:
+            configMapKeyRef:
+              key: TWITTER_SECRET
+              name: node-env
+        image: node
+        name: node
+        ports:
+        - containerPort: 3000
+        resources: {}
+        volumeMounts:
+        - mountPath: /app
+          name: node-claim0
+        - mountPath: /app/node_modules
+          name: node-claim1
+      restartPolicy: Always
+      volumes:
+      - name: node-claim0
+        persistentVolumeClaim:
+          claimName: node-claim0
+      - name: node-claim1
+        persistentVolumeClaim:
+          claimName: node-claim1
+status: {}
