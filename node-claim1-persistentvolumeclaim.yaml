@@ -6,6 +6,7 @@ metadata:
     io.kompose.service: node-claim1
   name: node-claim1
 spec:
+  storageClassName: standard
   accessModes:
   - ReadWriteOnce
   resources:
