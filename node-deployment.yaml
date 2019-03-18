@@ -88,7 +88,7 @@ spec:
             configMapKeyRef:
               key: TWITTER_SECRET
               name: node-env
-        image: node
+        image: smilebhai/node:latest
         name: node
         ports:
         - containerPort: 3000
