@@ -21,13 +21,7 @@ spec:
         io.kompose.service: node
     spec:
       containers:
-      - args:
-        - /usr/local/wait-for-it.sh
-        - mongo:27017
-        - --
-        - npm
-        - start
-        env:
+      - env:
         - name: GITHUB_CLIENTID
           valueFrom:
             configMapKeyRef:
@@ -93,12 +87,5 @@ spec:
         ports:
         - containerPort: 3000
         resources: {}
-        volumeMounts:
-        - mountPath: /app
-          name: node-claim0
-      restartPolicy: Always
-      volumes:
-      - name: node-claim0
-        persistentVolumeClaim:
-          claimName: node-claim0
+      restartPolicy: OnFailure
 status: {}

@@ -4,8 +4,6 @@ services:
   node:
     build:
       context: .
-      dockerfile: ./docker/node/Dockerfile
-    command: /usr/local/wait-for-it.sh mongo:27017 -- npm start
     env_file:
       - .env
     ports:
