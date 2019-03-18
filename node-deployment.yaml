@@ -87,5 +87,5 @@ spec:
         ports:
         - containerPort: 3000
         resources: {}
-      restartPolicy: OnFailure
+      restartPolicy: Always
 status: {}
