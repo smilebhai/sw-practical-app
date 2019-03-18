@@ -16,6 +16,9 @@ services:
       - 3000:3000
     depends_on:
       - mongo
+    labels:
+        kompose.service.type: "loadbalancer"
+        kompose.service.expose: "true"
   mongo:
     image: mongo
     restart: always

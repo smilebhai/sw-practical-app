@@ -6,7 +6,6 @@ metadata:
     io.kompose.service: mongo-claim0
   name: mongo-claim0
 spec:
-  storageClassName: standard
   accessModes:
   - ReadWriteOnce
   resources:
