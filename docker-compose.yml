@@ -2,11 +2,9 @@ version: "3.2"
 
 services:
   node:
-    image: smilebhai/node:latest
-    volumes:
-    # https://stackoverflow.com/a/32785014/232619
-      - .:/app
-      - /app/node_modules
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
     command: /usr/local/wait-for-it.sh mongo:27017 -- npm start
     env_file:
       - .env
@@ -22,5 +20,3 @@ services:
     restart: always
     ports:
       - 27017:27017
-    volumes:
-      - ./data:/data/db
