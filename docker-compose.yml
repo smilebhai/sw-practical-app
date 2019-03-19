@@ -15,6 +15,8 @@ services:
     restart: always
     ports:
       - 27017:27017
+    volumes:
+      - ./data:/data/db
   nginx:
     build: ./docker/nginx/
     depends_on:
