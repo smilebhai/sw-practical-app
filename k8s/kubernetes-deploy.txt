@@ -1,0 +1,34 @@
+StorageClass
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/storageclass.yml
+
+Mongo
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/mongo-service.yaml
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/mongo-claim0-persistentvolumeclaim.yaml
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/mongo-deployment.yaml
+
+Node
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/node-env-configmap.yaml
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/node-service.yaml
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/node-deployment.yaml
+
+Nginx
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/nginx-service.yaml
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/nginx-ingress.yaml
+kubectl create -f https://raw.githubusercontent.com/smilebhai/sw-practical-app/master/k8s/nginx-deployment.yaml
+
+DELETE
+
+Nginx
+kubectl delete deployments nginx
+kubectl delete services nginx
+kubectl delete ingress nginx
+
+Node
+kubectl delete deployments node
+kubectl delete services node
+kubectl delete configmaps node-env
+
+Mongo
+kubectl delete deployments mongo
+kubectl delete services mongo
+kubectl delete persistentvolumeclaim mongo-claim0
