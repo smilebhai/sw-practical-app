@@ -7,6 +7,8 @@
 
 # Nodejs Express Mongoose Demo
 
+ORIGINAL: https://github.com/madhums/node-express-mongoose-demo
+
 This is a demo application illustrating various features used in everyday web development, with a fine touch of best practices. The demo app is a blog application where users can signup, create an article, delete an article and add comments etc.
 
 Table of contents:
