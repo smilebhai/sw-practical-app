@@ -18,3 +18,11 @@ services:
     restart: always
     ports:
       - 27017:27017
+  nginx:
+    build: ./docker/nginx/
+    depends_on:
+      - node
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
