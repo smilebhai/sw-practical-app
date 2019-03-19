@@ -1,10 +1,12 @@
 # SW Practical App Demo
 
-Multi-container web application using NodeJS, MongoDB, and Docker.
+This is a clone of https://github.com/madhums/node-express-mongoose-demo. A multi-container web application using NodeJS, MongoDB, and Docker.
 
-* Add Nginx support.
-* Use Kompose to convert Docker Compose file and translate it into customized [Kubernetes resources](https://github.com/smilebhai/sw-practical-app/tree/master/k8s) to work with AWS.
+* Add Nginx support
+* Customize Dockerfile and docker-compose to work with Kubernetes (k8s)
+* Use Kompose to convert Docker Compose file and translate it into customized [k8s resources](https://github.com/smilebhai/sw-practical-app/tree/master/k8s) to work with AWS
 
+## Resources
 
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 * [Docker Compose](https://docs.docker.com/compose/overview/)
@@ -12,9 +14,7 @@ Multi-container web application using NodeJS, MongoDB, and Docker.
 * [Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 
-# ORIGINAL
-
-Clone of https://github.com/madhums/node-express-mongoose-demo
+---
 
 # Nodejs Express Mongoose Demo
 
