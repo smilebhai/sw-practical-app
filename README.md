@@ -6,6 +6,18 @@ This is a clone of https://github.com/madhums/node-express-mongoose-demo. A mult
 * Customize Dockerfile and docker-compose to work with Kubernetes (k8s)
 * Use Kompose to convert Docker Compose file and translate it into customized [k8s resources](https://github.com/smilebhai/sw-practical-app/tree/master/k8s) to work with AWS
 
+Convert Docker Compose file using kompose
+
+    $ kompose convert -f <Specify an alternative compose file>
+
+Resulting k8s resources
+
+    $ ls ./k8s
+
+Commands to run in Kubernetes : [kubernetes-deploy](https://github.com/smilebhai/sw-practical-app/blob/master/k8s/kubernetes-deploy.txt)
+
+    $ cat ./k8s/kubernetes-deploy.txt
+
 ## Resources
 
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
