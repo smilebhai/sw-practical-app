@@ -1,11 +1,12 @@
+
+// STATUS - INCOMPLETE
 pipeline {
     agent any
     environment {
-        //be sure to replace "willbla" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "smilebhai/sw_practical_nodeapp"
+        DOCKER_IMAGE_NAME = "smilebhai/node"
     }
     stages {
-    /*
+    /* Testing in progress
         stage('Build') {
             steps {
                 echo 'Running build automation'
@@ -47,42 +48,7 @@ pipeline {
                 milestone(1)
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
-                    configs: 'mongo-service.yaml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'node-service.yaml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'mongo-deployment.yaml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'mongo-claim0-persistentvolumeclaim.yaml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'node-deployment.yaml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'node-env-configmap.yaml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'node-claim0-persistentvolumeclaim.yaml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'node-claim1-persistentvolumeclaim.yaml',
+                    configs: 'k8s/sw-practical-kube.yml',
                     enableConfigSubstitution: true
                 )
             }
